@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 
 class ItemModal extends Component {
@@ -34,7 +33,6 @@ class ItemModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            id: uuid(),
             name: this.state.name
         }
 
