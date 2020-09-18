@@ -1,9 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AppNavbar from './components/AppNavbar';
-import ShoppingList from './components/ShoppingList';
-import ItemModal from './components/ItemModal';
-import { Container } from 'reactstrap';
-
+import HomePage from './pages/HomePage';
+import ShoppingPage from './pages/ShoppingPage';
+import PlayerPage from './pages/PlayerPage';
+import MethodologyPage from './pages/MethodologyPage';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -14,11 +15,23 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <AppNavbar/>
-        <Container>
-          <ItemModal/>
-          <ShoppingList/>
-        </Container>
+        <BrowserRouter>
+          <AppNavbar/>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/shopping">
+              <ShoppingPage />
+            </Route>
+            <Route path="/players">
+              <PlayerPage />
+            </Route>
+            <Route path="/methodology">
+              <MethodologyPage />
+            </Route>
+          </Switch>
+        </BrowserRouter>
       </div>
     </Provider>
   );

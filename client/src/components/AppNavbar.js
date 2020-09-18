@@ -7,6 +7,10 @@ import {
     Nav,
     NavItem,
     NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
     Container
 } from 'reactstrap';
 
@@ -26,10 +30,28 @@ class AppNavbar extends Component {
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <Container>
-                        <NavbarBrand href="/">ShoppingList</NavbarBrand>
+                        <NavbarBrand href="/">Home</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}/>
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        NBA Archetypes
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem href="/methodology">
+                                            Methodology
+                                        </DropdownItem>
+                                        <DropdownItem href="/players">
+                                            Players
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                                <NavItem>
+                                    <NavLink href="/shopping">
+                                        Shopping List
+                                    </NavLink>
+                                </NavItem>
                                 <NavItem>
                                     <NavLink href="https://github.com/androidmage">
                                         Github
