@@ -1,51 +1,77 @@
 import React, { Component } from "react";
-import TextField from '@material-ui/core/TextField';
+import { Container, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { connect } from 'react-redux';
-import { getNames } from '../actions/playerActions';
-import { Button } from 'reactstrap';
+import { getNames, getYears } from '../actions/playerActions';
 import PropTypes from 'prop-types';
 
-
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 }
-];
+import './PlayerAutocomplete.css';
 
 class PlayerAutocomplete extends Component {
+
+  state = {
+    year: ''
+  }
 
   componentDidMount() {
     this.props.getNames();
   }
 
-  test = () => {
-    console.log('names: ' + this.props.names);
+  onNameChange = (event, values) => {
+    this.setState({ year: null })
+    this.props.getYears(values);
+  }
+
+  onYearChange = (event, values) => {
+    this.setState({ year: values });
   }
 
   render() {
     const names = this.props.names;
+    const years = this.props.years;
     return (
-      <div>
-        <Autocomplete
-          id="combo-box-demo"
-          options={names}
-          getOptionLabel={(option) => option}
-          style={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
-        />
-      </div>
+      <Container>
+        <h3>Search players by name and year</h3>
+        <br/>
+        <div className="row">
+          <div className="form-group col-xs-6 input-autocomplete">
+            <Autocomplete
+              id="player-name"
+              options={names}
+              getOptionLabel={(option) => option}
+              style={{ width: 250 }}
+              onChange={this.onNameChange}
+              renderInput={(params) => <TextField {...params} label="Player Name" variant="outlined" />}
+            />
+          </div>
+          <div className="form-group col-xs-6 input-autocomplete">
+            <Autocomplete
+              id="player-year"
+              options={years}
+              getOptionLabel={(option) => String(option)}
+              style={{ width: 150 }}
+              onChange={this.onYearChange}
+              value={this.state.year}
+              renderInput={(params) => <TextField {...params} label="Year" variant="outlined" />}
+            />
+          </div>
+        </div>
+        
+      </Container>
     );
   }
 }
 
 PlayerAutocomplete.propTypes = {
   getNames: PropTypes.func.isRequired,
-  names: PropTypes.array.isRequired
+  getYears: PropTypes.func.isRequired,
+  names: PropTypes.array.isRequired,
+  years: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  names: state.player.names
+  names: state.player.names,
+  years: state.player.years
 });
 
-export default connect(mapStateToProps, { getNames })(PlayerAutocomplete);
+export default connect(mapStateToProps, { getNames, getYears })(PlayerAutocomplete);

@@ -1,4 +1,4 @@
-import { GET_NAMES } from '../actions/types';
+import { GET_NAMES, GET_YEARS } from '../actions/types';
 
 const initialState = {
     names: [],
@@ -13,6 +13,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 names: action.payload,
+            }
+        case GET_YEARS:
+            return {
+                ...state,
+                years: action.payload
             }
         default:
             return state;
