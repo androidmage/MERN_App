@@ -26,10 +26,15 @@
 
 .bg {
     height: 100%;
-    background: 0.5;
+    display: block;
+    overflow: auto;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.stretch-bg {
+    height: fit-content;
 }
 
 .full {

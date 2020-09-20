@@ -4,6 +4,10 @@
     margin: 0.5%;
 }
 
-.card-holder {
+.flexible {
     display: flex;
+}
+
+.center {
+    text-align: center;
 }

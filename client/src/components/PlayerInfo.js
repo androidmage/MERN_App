@@ -15,42 +15,69 @@ class PlayerAutocomplete extends Component {
         for (var key in player) {
             keys.push(key);
         }
+        let basics = [...keys.slice(3,6), ...keys.slice(42,44)];
         let totals = keys.slice(6, 22);
         let advancedStats = keys.slice(22, 42);
         let perGame = keys.slice(44, 61);
         let shooting = keys.slice(61, 86);
         return (
-            <div className="card-holder">
-                <Card className="stat-card">
-                    <img src={require('../../public/headshots/' + player['slug'] + '.jpg')} alt="Player Headshot"/>
-                </Card>
-                <Card className="stat-card">
-                    <CardContent>
-                        <Typography variant="h6">
-                            Season Totals
-                        </Typography>
-                        {totals.map((totalKey) => (
-                            <Typography variant="body2" component="p">
-                                <b>{totalKey}</b>{': ' + player[totalKey]}
+            <div className="flexible">
+                <div>
+                    <Card className="stat-card mx-auto">
+                        <CardContent>
+                            <Typography variant="h6" className="center">
+                                Basic Info
                             </Typography>
-                        ))}
-                    </CardContent>
-                </Card>
+                            <div className="flexible">
+                                <img src={require('../../public/headshots/' + player['slug'] + '.jpg')} alt="Player Headshot"/>
+                                <div>
+                                    <Typography variant="subtitle1">
+                                        <b>Archetype: </b>{player['cluster_num']}
+                                    </Typography>
+                                    {basics.map((bKey) => (
+                                        <Typography variant="body2" component="p">
+                                            <b>{bKey}</b>{': ' + player[bKey]}
+                                        </Typography>
+                                    ))}
+                                </div>
+                                
+                            </div>
+                            
+                        </CardContent>
+                    </Card>
+                    <div className="flexible">
+                        <Card className="stat-card">
+                            <CardContent>
+                                <Typography variant="h6" className="center">
+                                    Season Totals
+                                </Typography>
+                                {totals.map((totalKey) => (
+                                    <Typography variant="body2" component="p">
+                                        <b>{totalKey}</b>{': ' + player[totalKey]}
+                                    </Typography>
+                                ))}
+                            </CardContent>
+                        </Card>
+                        <Card className="stat-card">
+                            <CardContent>
+                                <Typography variant="h6" className="center">
+                                    Per Game
+                                </Typography>
+                                {perGame.map((pgKey) => (
+                                    <Typography variant="body2" component="p" style={{}}>
+                                        <b>{pgKey.substring(9)}</b>{': ' + player[pgKey]}
+                                    </Typography>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+                
+                
+                
                 <Card className="stat-card">
                     <CardContent>
-                        <Typography variant="h6">
-                            Per Game
-                        </Typography>
-                        {perGame.map((pgKey) => (
-                            <Typography variant="body2" component="p" style={{}}>
-                                <b>{pgKey.substring(9)}</b>{': ' + player[pgKey]}
-                            </Typography>
-                        ))}
-                    </CardContent>
-                </Card>
-                <Card className="stat-card">
-                    <CardContent>
-                        <Typography variant="h6">
+                        <Typography variant="h6" className="center">
                             Advanced Stats
                         </Typography>
                         {advancedStats.map((advKey) => (
@@ -62,7 +89,7 @@ class PlayerAutocomplete extends Component {
                 </Card>
                 <Card className="stat-card">
                     <CardContent>
-                        <Typography variant="h6">
+                        <Typography variant="h6" className="center">
                             Shooting Splits
                         </Typography>
                         {shooting.map((sKey) => (

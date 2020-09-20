@@ -12,6 +12,7 @@ class PlayerAutocomplete extends Component {
 
   state = {
     name: '',
+    year: '',
     showPlayer: false
   }
 
@@ -20,13 +21,13 @@ class PlayerAutocomplete extends Component {
   }
 
   onNameChange = (event, values) => {
-    this.setState({ name: values, showPlayer: false })
+    this.setState({ name: values, year: null, showPlayer: false })
     this.props.getYears(values);
   }
 
   onYearChange = (event, values) => {
     if (values != null) {
-      this.setState({ showPlayer: true });
+      this.setState({ showPlayer: true, year: values });
       this.props.getPlayer(this.state.name, values);
     } else {
       this.setState({ showPlayer: false });
