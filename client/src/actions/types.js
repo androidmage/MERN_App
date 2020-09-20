@@ -5,3 +5,4 @@ export const ITEMS_LOADING = 'ITEMS_LOADING';
 
 export const GET_NAMES = 'GET_NAMES';
 export const GET_YEARS = 'GET_YEARS';
+export const GET_PLAYER = 'GET_PLAYER';

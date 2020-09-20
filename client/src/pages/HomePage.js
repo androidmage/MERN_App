@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 
 const HomePage = () => (  
     <Container>
+        <br/>
         <h1>Allen Hu</h1>
         <p>3A Computer Science student at University of Waterloo</p>
         <br/>

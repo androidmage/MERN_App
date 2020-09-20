@@ -1,10 +1,9 @@
-import { GET_NAMES, GET_YEARS } from '../actions/types';
+import { GET_NAMES, GET_YEARS, GET_PLAYER } from '../actions/types';
 
 const initialState = {
     names: [],
     years: [],
-    player: [],
-    loading: false
+    player: []
 }
 
 export default function(state = initialState, action) {
@@ -18,6 +17,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 years: action.payload
+            }
+        case GET_PLAYER:
+            return {
+                ...state,
+                player: action.payload
             }
         default:
             return state;

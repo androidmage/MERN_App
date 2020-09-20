@@ -1,4 +1,4 @@
-import { GET_NAMES, GET_YEARS } from './types';
+import { GET_NAMES, GET_YEARS, GET_PLAYER } from './types';
 import axios from 'axios';
 
 export const getNames = () => dispatch => {
@@ -18,6 +18,17 @@ export const getYears = (name) => dispatch => {
         .then(res => 
             dispatch({
                 type: GET_YEARS,
+                payload: res.data
+            })
+        );
+};
+
+export const getPlayer = (name, year) => dispatch => {
+    axios
+        .get('/api/players?name=' + name + '&year=' + year)
+        .then(res => 
+            dispatch({
+                type: GET_PLAYER,
                 payload: res.data
             })
         );

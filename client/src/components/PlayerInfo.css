@@ -1,0 +1,9 @@
+.stat-card {
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5%;
+}
+
+.card-holder {
+    display: flex;
+}

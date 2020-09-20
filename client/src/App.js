@@ -14,18 +14,23 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="full">
         <BrowserRouter>
           <AppNavbar/>
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <div className="bg" style={{ backgroundImage: "url('glasses-home.jpg')"}}>
+                <HomePage />
+              </div>
             </Route>
             <Route exact path="/shopping">
               <ShoppingPage />
             </Route>
             <Route path="/players">
-              <PlayerPage />
+              <div className="bg" style={{ backgroundImage: "url('basketball-court.jpg')"}}>
+                <PlayerPage />
+              </div>
+              
             </Route>
             <Route path="/methodology">
               <MethodologyPage />
