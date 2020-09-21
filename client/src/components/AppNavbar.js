@@ -53,8 +53,8 @@ class AppNavbar extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink>
-                                        <a href="https://github.com/androidmage">Github</a>
+                                    <NavLink href="https://github.com/androidmage" target="_parent">
+                                        Github
                                     </NavLink>
                                 </NavItem>
                             </Nav>

@@ -9,12 +9,18 @@ import './PlayerInfo.css';
 
 class PlayerAutocomplete extends Component {
 
+    clusterLabels = ['Spot-up 3pt Shooter', 'Midrange Assassin', 'Defensive Bench Wing',
+                    'Athletic Defensive Lob-threat', 'Average Wing', 'Two-way Rim Running Big',
+                    'Defending Bench Big', 'Offensive Big', 'Scoring Bench Guard',
+                    'Elite Scorer and Playmaker', 'Perimeter Defender', 'Floor General'];
+
     render() {
         const player = this.props.player[0];
         let keys = []
         for (var key in player) {
             keys.push(key);
         }
+        let cluster = this.clusterLabels[player['cluster_num']];
         let basics = [...keys.slice(3,6), ...keys.slice(42,44)];
         let totals = keys.slice(6, 22);
         let advancedStats = keys.slice(22, 42);
@@ -29,10 +35,11 @@ class PlayerAutocomplete extends Component {
                                 Basic Info
                             </Typography>
                             <div className="flexible">
-                                <img src={require('../../public/headshots/' + player['slug'] + '.jpg')} alt="Player Headshot"/>
+                                <img src={require('../../public/headshots/' + player['slug'] + '.jpg')}
+                                    className="mr-3" alt="Player Headshot"/>
                                 <div>
                                     <Typography variant="subtitle1">
-                                        <b>Archetype: </b>{player['cluster_num']}
+                                        <b>Archetype: </b>{cluster}
                                     </Typography>
                                     {basics.map((bKey) => (
                                         <Typography variant="body2" component="p">
