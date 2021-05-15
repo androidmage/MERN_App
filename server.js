@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const items = require('./routes/api/items');
 const players = require('./routes/api/players');
+const reddit = require('./routes/api/reddit');
 
 const app = express();
 
@@ -21,6 +22,7 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 app.use('/api/players', players);
+app.use('/api/reddit', reddit);
 
 // Set static folder
 app.use(express.static('client/build'));
