@@ -23,12 +23,9 @@
   },
   "homepage": "https://github.com/androidmage/MERN_Tutorial#readme",
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/lab": "^4.0.0-alpha.56",
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.18",
-    "react-router-dom": "^5.2.0"
+    "mongoose": "^5.9.18"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
