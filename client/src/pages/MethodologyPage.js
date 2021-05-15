@@ -201,10 +201,10 @@ const MethodologyPage = () => (
                     Look at these MIP (Most Improved Player) award winners the year they won
                     <ul>
                         <li>
-                            CJ McCollum: Scoring Bench Guard => Midrange Assassin
+                            CJ McCollum: Scoring Bench Guard into Midrange Assassin
                         </li>
                         <li>
-                            Pascal Siakam: Perimeter Defender => Two-way Rim Running Big
+                            Pascal Siakam: Perimeter Defender into Two-way Rim Running Big
                         </li>
                     </ul>
                 </li>

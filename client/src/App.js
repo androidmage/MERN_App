@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ShoppingPage from './pages/ShoppingPage';
 import PlayerPage from './pages/PlayerPage';
 import MethodologyPage from './pages/MethodologyPage';
+import RedditPage from './pages/RedditPage';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -30,10 +31,12 @@ function App() {
               <div className="bg" style={{ backgroundImage: "url('basketball-court.jpg')"}}>
                 <PlayerPage />
               </div>
-              
             </Route>
             <Route path="/methodology">
               <MethodologyPage />
+            </Route>
+            <Route path="/reddit">
+              <RedditPage />
             </Route>
           </Switch>
         </BrowserRouter>

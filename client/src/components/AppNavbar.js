@@ -48,6 +48,11 @@ class AppNavbar extends Component {
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                                 <NavItem>
+                                    <NavLink href="/reddit">
+                                        Reddit Metrics
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
                                     <NavLink href="/shopping">
                                         Shopping List
                                     </NavLink>
